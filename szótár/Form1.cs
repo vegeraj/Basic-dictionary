@@ -13,7 +13,8 @@ namespace szótár
             szótár["apple"] = "alma";
             szótár["car"] = "autó";
             szótár["faith"] = "hit";
-
+            listBox1.Items.AddRange(szótár.Keys.ToArray<string>());
+            listBox2.Items.AddRange(szótár.Values.ToArray<string>());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,6 +34,16 @@ namespace szótár
                 }
             }
             else label2.Text = "Sajnos nem találtam meg a szót.";
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBox2.SelectedIndex = listBox1.SelectedIndex;
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBox1.SelectedIndex = listBox2.SelectedIndex;
         }
     }
 }
